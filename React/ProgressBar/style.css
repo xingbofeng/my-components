@@ -1,0 +1,23 @@
+.CircularProgressbarPath {
+  stroke: #07e145;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1s ease-in-out 0s;
+}
+
+.CircularProgressbarTrail {
+  stroke: rgba(33, 157, 83, 0.27);
+}
+
+.CircularProgressbarText {
+  font-size: 12px;
+  fill: #000;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
+
+.percentage {
+  font-size: 30px;
+  fill: #07e145;
+  dominant-baseline: middle;
+  text-anchor: middle;
+}
