@@ -1,5 +1,12 @@
 <template>
-  <a :href="href">{{ text }}</a>
+  <a
+    v-if="text"
+    :href="href"
+  >{{ text }}</a>
+  <a
+    v-else
+    :href="href"
+  ><slot></slot></a>
 </template>
 
 <script>
@@ -35,6 +42,15 @@ export default {
   },
 
   mounted() {
+    this.$watch('to', () => {
+      if (this.getParameter('vendor') === '') {
+        this.href = this.to;
+        return;
+      }
+      this.href = this.transferLink(this.to);
+    }, {
+      deep: true,
+    });
     if (this.getParameter('vendor') === '') {
       this.href = this.to;
       return;
@@ -45,4 +61,8 @@ export default {
 </script>
 
 <style scoped>
+a:hover, a:visited, a:link, a:active {
+  text-decoration: none;
+  color: inherit;
+}
 </style>
